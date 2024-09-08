@@ -6,45 +6,17 @@ extension Font {
 
     private class MyDummyClass {}
 
-    static func loadFontWith(fontName: String) {
-        if let fontPath: String = Bundle.main.path(forResource: nil, ofType: "ttf", inDirectory: "Resources/fonts") {
-            let fontFileURL = URL(fileURLWithPath: fontPath).appendingPathComponent(fontName).appendingPathExtension(".ttf")
-            
-            var fontError: Unmanaged<CFError>?
-            if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
-               let dataProvider = CGDataProvider(data: fontData) {
-                
-                guard let fontRef = CGFont(dataProvider) else {
-                    //                printDebugMessage(message: "Failed to load font: '\(fontName)': fontRef is nil")
-                    return
-                }
-                
-                if CTFontManagerRegisterGraphicsFont(fontRef, &fontError),
-                   let postScriptName = fontRef.postScriptName {
-                    //                    printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
-                    //                    loadedFonts.append(String(postScriptName))
-                } else if let fontError = fontError?.takeRetainedValue() {
-                    let errorDescription = CFErrorCopyDescription(fontError)
-                    //                printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
-                }
-            } else {
-                guard let fontError = fontError?.takeRetainedValue() else {
-                    //                printDebugMessage(message: "Failed to load font '\(fontName)'.")
-                    return
-                }
-                
-                let errorDescription = CFErrorCopyDescription(fontError)
-                //            printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
-            }
-        }
+    static func loadFontWith(name: String) {
+        guard let url = Bundle.designSystem.url(forResource: name, withExtension: nil) else { return }
+        CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
     }
 
     public static let loadMyFonts: () = {
-        loadFontWith(fontName: "Poppins-Bold")
-        loadFontWith(fontName: "Poppins-SemiBold")
-        loadFontWith(fontName: "Poppins-Medium")
-        loadFontWith(fontName: "Poppins-Light")
-        loadFontWith(fontName: "Poppins-Regular")
+        loadFontWith(name: "Poppins-Bold.ttf")
+        loadFontWith(name: "Poppins-SemiBold.ttf")
+        loadFontWith(name: "Poppins-Medium.ttf")
+        loadFontWith(name: "Poppins-Light.ttf")
+        loadFontWith(name: "Poppins-Regular.ttf")
     }()
 }
 
@@ -77,6 +49,44 @@ struct SDFontProvider: SDCustomFontProvider {
         }
     }
 }
+
+extension Bundle {
+    private class CurrentBundleFinder {}
+
+    /// This is used to allow you to use resources from DesignSystem in other Swift Package previews.
+    /// Inspiration from here: https://developer.apple.com/forums/thread/664295
+    public static var designSystem: Bundle = {
+        let bundleNameIOS = "CustomFontsPackage_DesignSystem"
+        let candidates = [
+            // Bundle should be present here when the package is linked into an App.
+            Bundle.main.resourceURL,
+            // Bundle should be present here when the package is linked into a framework.
+            Bundle(for: CurrentBundleFinder.self).resourceURL,
+            // For command-line tools.
+            Bundle.main.bundleURL,
+            // Bundle should be present here when running previews from a different package
+            // (this is the path to "…/Debug-iphonesimulator/").
+            Bundle(for: CurrentBundleFinder.self)
+                .resourceURL?
+                .deletingLastPathComponent()
+                .deletingLastPathComponent()
+                .deletingLastPathComponent(),
+            Bundle(for: CurrentBundleFinder.self)
+                .resourceURL?
+                .deletingLastPathComponent()
+                .deletingLastPathComponent(),
+        ]
+
+        for candidate in candidates {
+            let bundlePathiOS = candidate?.appendingPathComponent(bundleNameIOS + ".bundle")
+            if let bundle = bundlePathiOS.flatMap(Bundle.init(url:)) {
+                return bundle
+            }
+        }
+        fatalError("Can't find designSystem custom bundle. See Bundle+Extensions.swift")
+    }()
+}
+
 
 protocol SDCustomFontsType {
     var font50Light: Font { get }
