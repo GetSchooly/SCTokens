@@ -56,7 +56,11 @@ extension Bundle {
     /// This is used to allow you to use resources from DesignSystem in other Swift Package previews.
     /// Inspiration from here: https://developer.apple.com/forums/thread/664295
     public static var designSystem: Bundle = {
-        let bundleNameIOS = "CustomFontsPackage_DesignSystem"
+        // The name of your local package bundle. This may change on every different version of Xcode.
+        // It used to be "LocalPackages_<ModuleName>" for iOS. To find out what it is, print out  the path for
+        // Bundle(for: CurrentBundleFinder.self).resourceURL?.deletingLastPathComponent().deletingLastPathComponent()
+        // and then look for what bundle is named in there.
+        let bundleNameIOS = "SCTokens_FontTokens"
         let candidates = [
             // Bundle should be present here when the package is linked into an App.
             Bundle.main.resourceURL,
