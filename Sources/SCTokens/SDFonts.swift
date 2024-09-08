@@ -6,25 +6,45 @@ extension Font {
 
     private class MyDummyClass {}
 
-    static func loadFontWith(name: String) {
-        let frameworkBundle = Bundle(for: MyDummyClass.self)
-        let pathForResourceString = frameworkBundle.path(forResource: name, ofType: "ttf")
-        let fontData = NSData(contentsOfFile: pathForResourceString!)
-        let dataProvider = CGDataProvider(data: fontData!)
-        let fontRef = CGFont(dataProvider!)
-        var errorRef: Unmanaged<CFError>? = nil
-
-        if (CTFontManagerRegisterGraphicsFont(fontRef!, &errorRef) == false) {
-            NSLog("Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.")
+    static func loadFontWith(fontName: String) {
+        if let fontPath: String = Bundle.main.path(forResource: nil, ofType: "ttf", inDirectory: "Resources/fonts") {
+            let fontFileURL = URL(fileURLWithPath: fontPath).appendingPathComponent(fontName).appendingPathExtension(".ttf")
+            
+            var fontError: Unmanaged<CFError>?
+            if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
+               let dataProvider = CGDataProvider(data: fontData) {
+                
+                guard let fontRef = CGFont(dataProvider) else {
+                    //                printDebugMessage(message: "Failed to load font: '\(fontName)': fontRef is nil")
+                    return
+                }
+                
+                if CTFontManagerRegisterGraphicsFont(fontRef, &fontError),
+                   let postScriptName = fontRef.postScriptName {
+                    //                    printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
+                    //                    loadedFonts.append(String(postScriptName))
+                } else if let fontError = fontError?.takeRetainedValue() {
+                    let errorDescription = CFErrorCopyDescription(fontError)
+                    //                printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
+                }
+            } else {
+                guard let fontError = fontError?.takeRetainedValue() else {
+                    //                printDebugMessage(message: "Failed to load font '\(fontName)'.")
+                    return
+                }
+                
+                let errorDescription = CFErrorCopyDescription(fontError)
+                //            printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
+            }
         }
     }
 
     public static let loadMyFonts: () = {
-        loadFontWith(name: "Poppins-Bold")
-        loadFontWith(name: "Poppins-SemiBold")
-        loadFontWith(name: "Poppins-Medium")
-        loadFontWith(name: "Poppins-Light")
-        loadFontWith(name: "Poppins-Regular")
+        loadFontWith(fontName: "Poppins-Bold")
+        loadFontWith(fontName: "Poppins-SemiBold")
+        loadFontWith(fontName: "Poppins-Medium")
+        loadFontWith(fontName: "Poppins-Light")
+        loadFontWith(fontName: "Poppins-Regular")
     }()
 }
 
