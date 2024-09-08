@@ -21,6 +21,8 @@ extension Font {
 
     public static let loadMyFonts: () = {
         loadFontWith(name: "Poppins-Bold")
+        loadFontWith(name: "Poppins-SemiBold")
+        loadFontWith(name: "Poppins-Medium")
         loadFontWith(name: "Poppins-Light")
         loadFontWith(name: "Poppins-Regular")
     }()

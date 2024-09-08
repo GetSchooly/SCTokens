@@ -22,7 +22,8 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "SCTokens",
-            exclude: []
+            exclude: ["Resources/fonts"],
+            resources: [.process("Resources")]
         ),
         .testTarget(
             name: "SCTokensTests",
