@@ -84,23 +84,24 @@ public struct SDElevation {
     }
     
     public static var defaultGrayElevation: SDElevation {
-        SDElevation(x: 0.0, y: 0.0, radius: 5.0, color: .gray.opacity(0.5))
+        SDElevation(x: 0.0, y: 0.0, radius: 10.0, color: .gray.opacity(0.2))
     }
 }
 
-//public struct ApplyElevation: ViewModifier {
-//    let elevation = SDElevation
-//    init(_ elevation: SDElevation) {
-//        self.elevation = elevation
-//    }
-//
-//    func body(content: Content) -> some View {
-//        content.shadow(color: elevation.color, radius: elevation.radius, x: elevation.x, y: elevation.y)
-//    }
-//}
-//
-//public extension View {
-//    func shadow(_ elevation: SDElevation) -> some View {
-//        modifier(ApplyElevation(elevation))
-//    }
-//}
+public struct ApplyElevation: ViewModifier {
+    let elevation: SDElevation
+    
+    init(_ elevation: SDElevation) {
+        self.elevation = elevation
+    }
+
+    public func body(content: Content) -> some View {
+        content.shadow(color: elevation.color, radius: elevation.radius, x: elevation.x, y: elevation.y)
+    }
+}
+
+public extension View {
+    func shadow(_ elevation: SDElevation) -> some View {
+        modifier(ApplyElevation(elevation))
+    }
+}

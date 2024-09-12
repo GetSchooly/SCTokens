@@ -1,6 +1,7 @@
 import SwiftUI
 
 public extension Color {
+    static let appBackground = Color(red: 250/225, green: 250/225, blue: 250/225)
     static let primaryBackground = Color(red: 0/225, green: 119/225, blue: 182/225)
     
     static let primaryText = Color.black
