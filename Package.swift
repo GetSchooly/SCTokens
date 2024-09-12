@@ -22,8 +22,13 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "SCTokens",
-            exclude: ["Resources/fonts"],
-            resources: [.process("Resources")]
+            resources: [
+                .copy("Resources/fonts/Poppins-Bold.ttf"),
+                .copy("Resources/fonts/Poppins-SemiBold.ttf"),
+                .copy("Resources/fonts/Poppins-Medium.ttf"),
+                .copy("Resources/fonts/Poppins-Light.ttf"),
+                .copy("Resources/fonts/Poppins-Regular.ttf"),
+            ]
         ),
         .testTarget(
             name: "SCTokensTests",

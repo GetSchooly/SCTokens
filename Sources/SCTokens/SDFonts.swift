@@ -4,19 +4,35 @@ import SwiftUI
 
 extension Font {
 
-    private class MyDummyClass {}
-
-    static func loadFontWith(name: String) {
-        guard let url = Bundle.designSystem.url(forResource: name, withExtension: nil) else { return }
-        CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+    static func registerFontsFromBundle(named names: [String]) {
+        let bundle: Bundle = {
+            #if SWIFT_PACKAGE
+            return Bundle.module
+            #else
+            return Bundle.main
+            #endif
+        }()
+        let fontURLs = names.compactMap { bundle.url(forResource: $0, withExtension: "ttf") }
+        
+        CTFontManagerRegisterFontURLs(fontURLs as CFArray, .process, true) { errors, done in
+            // CTFontManager.h points out that the CFArray, if not empty, contains CFError values.
+            let errors = errors as! [CFError]
+            guard errors.isEmpty else {
+                preconditionFailure("Registering font failed: \(errors.map(\.localizedDescription))")
+            }
+            return true  // true: should continue; false: should stop
+        }
     }
 
     public static let loadMyFonts: () = {
-        loadFontWith(name: "Poppins-Bold.ttf")
-        loadFontWith(name: "Poppins-SemiBold.ttf")
-        loadFontWith(name: "Poppins-Medium.ttf")
-        loadFontWith(name: "Poppins-Light.ttf")
-        loadFontWith(name: "Poppins-Regular.ttf")
+        
+        registerFontsFromBundle(named: [
+            "Poppins-Bold",
+            "Poppins-SemiBold",
+            "Poppins-Medium",
+            "Poppins-Light",
+            "Poppins-Regular"
+        ])
     }()
 }
 
@@ -49,48 +65,6 @@ struct SDFontProvider: SDCustomFontProvider {
         }
     }
 }
-
-extension Bundle {
-    private class CurrentBundleFinder {}
-
-    /// This is used to allow you to use resources from DesignSystem in other Swift Package previews.
-    /// Inspiration from here: https://developer.apple.com/forums/thread/664295
-    public static var designSystem: Bundle = {
-        // The name of your local package bundle. This may change on every different version of Xcode.
-        // It used to be "LocalPackages_<ModuleName>" for iOS. To find out what it is, print out  the path for
-        // Bundle(for: CurrentBundleFinder.self).resourceURL?.deletingLastPathComponent().deletingLastPathComponent()
-        // and then look for what bundle is named in there.
-        let bundleNameIOS = "SCTokens_FontTokens"
-        let candidates = [
-            // Bundle should be present here when the package is linked into an App.
-            Bundle.main.resourceURL,
-            // Bundle should be present here when the package is linked into a framework.
-            Bundle(for: CurrentBundleFinder.self).resourceURL,
-            // For command-line tools.
-            Bundle.main.bundleURL,
-            // Bundle should be present here when running previews from a different package
-            // (this is the path to "…/Debug-iphonesimulator/").
-            Bundle(for: CurrentBundleFinder.self)
-                .resourceURL?
-                .deletingLastPathComponent()
-                .deletingLastPathComponent()
-                .deletingLastPathComponent(),
-            Bundle(for: CurrentBundleFinder.self)
-                .resourceURL?
-                .deletingLastPathComponent()
-                .deletingLastPathComponent(),
-        ]
-
-        for candidate in candidates {
-            let bundlePathiOS = candidate?.appendingPathComponent(bundleNameIOS + ".bundle")
-            if let bundle = bundlePathiOS.flatMap(Bundle.init(url:)) {
-                return bundle
-            }
-        }
-        fatalError("Can't find designSystem custom bundle. See Bundle+Extensions.swift")
-    }()
-}
-
 
 protocol SDCustomFontsType {
     var font50Light: Font { get }
@@ -382,4 +356,3 @@ public extension Font {
         return SDCustomFontsTokens.customFonts.font400Bold
     }
 }
-
