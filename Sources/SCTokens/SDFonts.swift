@@ -27,11 +27,11 @@ extension Font {
     public static let loadMyFonts: () = {
         
         registerFontsFromBundle(named: [
-            "Poppins-Bold",
-            "Poppins-SemiBold",
-            "Poppins-Medium",
-            "Poppins-Light",
-            "Poppins-Regular"
+            "Urbanist-Bold",
+            "Urbanist-SemiBold",
+            "Urbanist-Medium",
+            "Urbanist-Light",
+            "Urbanist-Regular"
         ])
     }()
 }
@@ -42,11 +42,11 @@ struct SDCustomFontsTokens {
 }
 
 struct SDFontProvider: SDCustomFontProvider {
-    var bold: String { return "Poppins-Bold" }
-    var light: String { return "Poppins-Light" }
-    var medium: String { return "Poppins-Medium" }
-    var semiBold: String { return "Poppins-SemiBold" }
-    var regular: String { return "Poppins-Regular" }
+    var bold: String { return "Urbanist-Bold" }
+    var light: String { return "Urbanist-Light" }
+    var medium: String { return "Urbanist-Medium" }
+    var semiBold: String { return "Urbanist-SemiBold" }
+    var regular: String { return "Urbanist-Regular" }
 
     func font(weight: Font.Weight) -> String {
         switch weight {

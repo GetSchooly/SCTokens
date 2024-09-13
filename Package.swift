@@ -23,11 +23,11 @@ let package = Package(
         .target(
             name: "SCTokens",
             resources: [
-                .copy("Resources/fonts/Poppins-Bold.ttf"),
-                .copy("Resources/fonts/Poppins-SemiBold.ttf"),
-                .copy("Resources/fonts/Poppins-Medium.ttf"),
-                .copy("Resources/fonts/Poppins-Light.ttf"),
-                .copy("Resources/fonts/Poppins-Regular.ttf"),
+                .copy("Resources/fonts/Urbanist-Bold.ttf"),
+                .copy("Resources/fonts/Urbanist-SemiBold.ttf"),
+                .copy("Resources/fonts/Urbanist-Medium.ttf"),
+                .copy("Resources/fonts/Urbanist-Light.ttf"),
+                .copy("Resources/fonts/Urbanist-Regular.ttf"),
             ]
         ),
         .testTarget(
