@@ -20,7 +20,7 @@ extension Font {
             guard errors.isEmpty else {
                 preconditionFailure("Registering font failed: \(errors.map(\.localizedDescription))")
             }
-            return true  // true: should continue; false: should stop
+            return true 
         }
     }
 
@@ -127,7 +127,7 @@ struct SDCustomFonts: SDCustomFontsType {
     }
     /// raw SD value font__400__Light
     var font400Light: Font {
-        return Font.custom(SDCustomFontsTokens.fontProvider.light, size: SDDdefaultTokenEntryPoint.tokenSource.sizing5xHalf)
+        return Font.custom(SDCustomFontsTokens.fontProvider.light, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
 
 
@@ -153,7 +153,7 @@ struct SDCustomFonts: SDCustomFontsType {
     }
     /// raw SD value font__400__regular
     var font400Regular: Font {
-        return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing5xHalf)
+        return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
 
     /// raw SD value font__50__Medium
@@ -178,7 +178,7 @@ struct SDCustomFonts: SDCustomFontsType {
     }
     /// raw SD value font__400__Medium
     var font400Medium: Font {
-        return Font.custom(SDCustomFontsTokens.fontProvider.medium, size: SDDdefaultTokenEntryPoint.tokenSource.sizing5xHalf)
+        return Font.custom(SDCustomFontsTokens.fontProvider.medium, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
 
 
@@ -204,7 +204,7 @@ struct SDCustomFonts: SDCustomFontsType {
     }
     /// raw SD value font__400__SemiBold
     var font400SemiBold: Font {
-        return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing5xHalf)
+        return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
 
 
@@ -230,7 +230,7 @@ struct SDCustomFonts: SDCustomFontsType {
     }
     /// raw SD value font__400__Bold
     var font400Bold: Font {
-        return Font.custom(SDCustomFontsTokens.fontProvider.bold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing5xHalf)
+        return Font.custom(SDCustomFontsTokens.fontProvider.bold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
 }
 
