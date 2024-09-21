@@ -1,6 +1,10 @@
 import SwiftUI
 import Foundation
 
+public var scTokenBundle: Bundle {
+    Bundle.module
+}
+
 public struct CornerRadius {
     private init() {}
 }
@@ -50,6 +54,13 @@ struct SDNumbers {
     let sizing11x = CGFloat(44)
     let sizing12x = CGFloat(48)
     let sizing13x = CGFloat(52)
+    let sizing14x = CGFloat(56)
+    let sizing15x = CGFloat(60)
+    let sizing16x = CGFloat(64)
+    let sizing17x = CGFloat(68)
+    let sizing18x = CGFloat(72)
+    let sizing19x = CGFloat(76)
+    let sizing20x = CGFloat(80)
 }
 
 public enum TextDecorationType: String {

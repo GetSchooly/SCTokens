@@ -1,5 +1,29 @@
 import Foundation
 
+public enum Icons: String {
+    case ic_Attendance
+    case ic_Events
+    case ic_Exams
+    case ic_Fees
+    case ic_Homework
+    case ic_result
+    case ic_Syllabus
+    case ic_Teachers
+    case ic_timeTable
+    case ic_back
+    case ic_notification
+    case ic_plus
+    case ic_schoolInfo
+    
+    case ic_onb1
+    case ic_onb2
+    case ic_onb3
+    
+    public var value: String {
+        self.rawValue
+    }
+}
+
 public enum IconSize {
     case extraSmall
     case small

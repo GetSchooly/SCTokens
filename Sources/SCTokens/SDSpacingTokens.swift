@@ -37,4 +37,22 @@ public extension Spacing {
     static var spacing4x: CGFloat {
         return SDDdefaultTokenEntryPoint.tokenSource.sizing4x
     }
+    
+    /// raw SD vlaue spacing__8x
+    static var spacing8x: CGFloat {
+        return SDDdefaultTokenEntryPoint.tokenSource.sizing8x
+    }
+    /// raw SD vlaue spacing__9x
+    static var spacing9x: CGFloat {
+        return SDDdefaultTokenEntryPoint.tokenSource.sizing9x
+    }
+    /// raw SD vlaue spacing__10x
+    static var spacing10x: CGFloat {
+        return SDDdefaultTokenEntryPoint.tokenSource.sizing10x
+    }
+    
+    /// raw SD vlaue spacing__12x
+    static var spacing12x: CGFloat {
+        return SDDdefaultTokenEntryPoint.tokenSource.sizing12x
+    }
 }

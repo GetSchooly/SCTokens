@@ -68,7 +68,7 @@ public extension Sizing {
     }
     
     /// raw SD vlaue sizing__TextFieldHeight
-    static var textFieldHeight: CGFloat {
+    static var textFieldMinHeight: CGFloat {
         return SDDdefaultTokenEntryPoint.tokenSource.sizing12x
     }
     
