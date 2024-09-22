@@ -66,6 +66,14 @@ public extension Sizing {
     static var sizing12x: CGFloat {
         return SDDdefaultTokenEntryPoint.tokenSource.sizing12x
     }
+    /// raw SD vlaue sizing__13x
+    static var sizing13x: CGFloat {
+        return SDDdefaultTokenEntryPoint.tokenSource.sizing13x
+    }
+    /// raw SD vlaue sizing__14x
+    static var sizing14x: CGFloat {
+        return SDDdefaultTokenEntryPoint.tokenSource.sizing14x
+    }
     
     /// raw SD vlaue sizing__TextFieldHeight
     static var textFieldMinHeight: CGFloat {

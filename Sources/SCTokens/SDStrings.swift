@@ -16,4 +16,11 @@ public struct SignInStrings {
     
     public static let loginToContinue = "Log in to continue"
     public static let continueText = "Continue"
+    
+    public static let otpVerifications = "OTP Verifications"
+    public static let otpVerificationsDesc = "Please enter the OTP sent to your registered mobile no."
+    public static let enterOTP = "Enter OTP"
+    public static let verifyText = "Verify"
+    public static let didntRcvOTP = "Didn’t receive  an OTP? "
+    public static let resendOTP = "Resend OTP"
 }
