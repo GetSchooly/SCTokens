@@ -42,6 +42,7 @@ struct SDNumbers {
     let sizing2x = CGFloat(8)
     let sizing2xHalf = CGFloat(10)
     let sizing3x = CGFloat(12)
+    let sizing3xHalf = CGFloat(14)
     let sizing4x = CGFloat(16)
     let sizing4xHalf = CGFloat(18)
     let sizing5x = CGFloat(20)
@@ -115,4 +116,43 @@ public extension View {
     func shadow(_ elevation: SDElevation) -> some View {
         modifier(ApplyElevation(elevation))
     }
+    
+    func border(_ border: SCBorder) -> some View {
+        modifier(ApplyBorder(border))
+    }
+}
+
+public struct SCBorder {
+    public let cornerRadius: CGFloat
+    public let color: Color
+    public let width: CGFloat
+    
+    public init(cornerRadius: CGFloat,
+                color: Color,
+                width: CGFloat) {
+        self.cornerRadius = cornerRadius
+        self.color = color
+        self.width = width
+    }
+    
+    public static var defaultBorder: SCBorder {
+        SCBorder(cornerRadius: 8.0, color: .royalBlue10, width: 1.0)
+    }
+}
+
+public struct ApplyBorder: ViewModifier {
+    let border: SCBorder
+    
+    public init(_ border: SCBorder) {
+        self.border = border
+    }
+    
+    public func body(content: Content) -> some View {
+        content
+            .overlay {
+                RoundedRectangle(cornerRadius: border.cornerRadius)
+                    .stroke(border.color, lineWidth: border.width)
+            }
+    }
+    
 }

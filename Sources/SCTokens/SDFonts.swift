@@ -69,6 +69,7 @@ struct SDFontProvider: SDCustomFontProvider {
 protocol SDCustomFontsType {
     var font50Light: Font { get }
     var font75Light: Font { get }
+    var font90Light: Font { get }
     var font100Light: Font { get }
     var font200Light: Font { get }
     var font300Light: Font { get }
@@ -76,6 +77,7 @@ protocol SDCustomFontsType {
 
     var font50Regular: Font { get }
     var font75Regular: Font { get }
+    var font90Regular: Font { get }
     var font100Regular: Font { get }
     var font200Regular: Font { get }
     var font300Regular: Font { get }
@@ -83,6 +85,7 @@ protocol SDCustomFontsType {
 
     var font50Medium: Font { get }
     var font75Medium: Font { get }
+    var font90Medium: Font { get }
     var font100Medium: Font { get }
     var font200Medium: Font { get }
     var font300Medium: Font { get }
@@ -90,6 +93,7 @@ protocol SDCustomFontsType {
 
     var font50SemiBold: Font { get }
     var font75SemiBold: Font { get }
+    var font90SemiBold: Font { get }
     var font100SemiBold: Font { get }
     var font200SemiBold: Font { get }
     var font300SemiBold: Font { get }
@@ -97,6 +101,7 @@ protocol SDCustomFontsType {
 
     var font50Bold: Font { get }
     var font75Bold: Font { get }
+    var font90Bold: Font { get }
     var font100Bold: Font { get }
     var font200Bold: Font { get }
     var font300Bold: Font { get }
@@ -112,6 +117,10 @@ struct SDCustomFonts: SDCustomFontsType {
     /// raw SD value font__75__Light
     var font75Light: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.light, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3x)
+    }
+    /// raw SD value font__90__Light
+    var font90Light: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.light, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3xHalf)
     }
     /// raw SD value font__100__Light
     var font100Light: Font {
@@ -139,6 +148,10 @@ struct SDCustomFonts: SDCustomFontsType {
     var font75Regular: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3x)
     }
+    /// raw SD value font__90__Regular
+    var font90Regular: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3xHalf)
+    }
     /// raw SD value font__100__regular
     var font100Regular: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing4x)
@@ -163,6 +176,10 @@ struct SDCustomFonts: SDCustomFontsType {
     /// raw SD value font__75__Medium
     var font75Medium: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.medium, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3x)
+    }
+    /// raw SD value font__90__Medium
+    var font90Medium: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.medium, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3xHalf)
     }
     /// raw SD value font__100__Medium
     var font100Medium: Font {
@@ -190,6 +207,10 @@ struct SDCustomFonts: SDCustomFontsType {
     var font75SemiBold: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3x)
     }
+    /// raw SD value font__90__SemiBold
+    var font90SemiBold: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3xHalf)
+    }
     /// raw SD value font__100__SemiBold
     var font100SemiBold: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing4x)
@@ -215,6 +236,10 @@ struct SDCustomFonts: SDCustomFontsType {
     /// raw SD value font__75__Bold
     var font75Bold: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.bold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3x)
+    }
+    /// raw SD value font__90__Bold
+    var font90Bold: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.bold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing3xHalf)
     }
     /// raw SD value font__100__Bold
     var font100Bold: Font {
@@ -244,6 +269,10 @@ public extension Font {
         return SDCustomFontsTokens.customFonts.font75Light
     }
     
+    static var font90Light: Font {
+        return SDCustomFontsTokens.customFonts.font90Light
+    }
+    
     static var font100Light: Font {
         return SDCustomFontsTokens.customFonts.font100Light
     }
@@ -266,6 +295,10 @@ public extension Font {
     
     static var font75Regular: Font {
         return SDCustomFontsTokens.customFonts.font75Regular
+    }
+    
+    static var font90Regular: Font {
+        return SDCustomFontsTokens.customFonts.font90Regular
     }
     
     static var font100Regular: Font {
@@ -292,6 +325,10 @@ public extension Font {
         return SDCustomFontsTokens.customFonts.font75Medium
     }
     
+    static var font90Medium: Font {
+        return SDCustomFontsTokens.customFonts.font90Medium
+    }
+    
     static var font100Medium: Font {
         return SDCustomFontsTokens.customFonts.font100Medium
     }
@@ -316,6 +353,10 @@ public extension Font {
         return SDCustomFontsTokens.customFonts.font75SemiBold
     }
     
+    static var font90SemiBold: Font {
+        return SDCustomFontsTokens.customFonts.font90SemiBold
+    }
+    
     static var font100SemiBold: Font {
         return SDCustomFontsTokens.customFonts.font100SemiBold
     }
@@ -338,6 +379,10 @@ public extension Font {
     
     static var font75Bold: Font {
         return SDCustomFontsTokens.customFonts.font75Bold
+    }
+    
+    static var font90Bold: Font {
+        return SDCustomFontsTokens.customFonts.font90Bold
     }
     
     static var font100Bold: Font {
