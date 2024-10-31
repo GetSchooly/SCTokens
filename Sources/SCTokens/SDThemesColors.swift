@@ -18,26 +18,10 @@ public extension Color {
     static let royalBlue10 = Color(hex: AppColors.royalBlue).opacity(0.1)
     static let lightBlue = Color(hex: AppColors.lightBlue)
     
-    
-    //    static let primaryBackground = Color(red: 0/225, green: 119/225, blue: 182/225)
-    //
-    //    static let primaryText = Color.black
-    //    static let primarySubText = primaryBackground
-    //    static let secondryText = Color(red: 101/225, green: 101/225, blue: 101/225)
-    //
-    //    static let buttonPrimaryText = Color.white
-    //    static let buttonPrimarySubText = primaryBackground
-    //    static let buttonSecondryText = primaryText
-    //    static let buttonPrimaryBackground = primaryBackground
-    //    static let buttonSecondryBackground = buttonPrimaryText
-    //
-    //    static let textFieldBackground = Color(red: 255/225, green: 255/225, blue: 255/225)
-    //
-    //    static let primaryBorder = primaryBackground
-    
     static let grayStroke = Color(hex: AppColors.lightGray)
     static let placholder = Color(hex: AppColors.lightGray)
     static let error = Color.red
+    static let darkGray = Color(hex: AppColors.darkGray)
 }
 
 
