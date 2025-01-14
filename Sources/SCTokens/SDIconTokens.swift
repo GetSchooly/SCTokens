@@ -14,6 +14,7 @@ public enum Icons: String {
     case ic_notification
     case ic_plus
     case ic_schoolInfo
+    case ic_check
     
     case ic_onb1
     case ic_onb2
