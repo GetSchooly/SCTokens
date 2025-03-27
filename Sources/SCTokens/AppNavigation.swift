@@ -23,11 +23,17 @@ public class AppNavigation: ObservableObject, AppRouting {
     }
 }
 
-//
-//public extension View {
-//    func parentNavigationDestination() -> some View {
-//        navigationDestination(for: (any NavigationDestination).) { destination in
-//            destination.
-//        }
-//    }
-//}
+public extension NavigationPath {
+    
+    mutating func push(to destination: any NavigationDestination) {
+        append(destination)
+    }
+    
+    mutating func popToLast() {
+        removeLast()
+    }
+    
+    mutating func popToRoot() {
+        removeLast(self.count)
+    }
+}
