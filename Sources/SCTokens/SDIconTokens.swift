@@ -20,6 +20,9 @@ public enum Icons: String {
     case ic_onb2
     case ic_onb3
     
+    case ic_school
+    case ic_info
+    
     public var value: String {
         self.rawValue
     }

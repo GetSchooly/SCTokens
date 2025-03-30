@@ -102,19 +102,21 @@ public struct SDElevation {
 
 public struct ApplyElevation: ViewModifier {
     let elevation: SDElevation
+    let show: Bool
     
-    init(_ elevation: SDElevation) {
+    init(_ elevation: SDElevation, show: Bool) {
         self.elevation = elevation
+        self.show = show
     }
 
     public func body(content: Content) -> some View {
-        content.shadow(color: elevation.color, radius: elevation.radius, x: elevation.x, y: elevation.y)
+        return content.shadow(color: show ? elevation.color: .clear, radius: elevation.radius, x: elevation.x, y: elevation.y)
     }
 }
 
 public extension View {
-    func shadow(_ elevation: SDElevation) -> some View {
-        modifier(ApplyElevation(elevation))
+    func shadow(_ elevation: SDElevation, show: Bool = true) -> some View {
+        return modifier(ApplyElevation(elevation, show: show))
     }
     
     func border(_ border: SCBorder) -> some View {
