@@ -2,7 +2,7 @@ import SwiftUI
 
 private struct AppColors {
     static let pantoneWhite = 0xFAFAFA
-    static let royalBlue = 0x0961F5
+    static let royalBlue = 0x152259//0x0961F5
     static let blackColor = 0x202244
     static let darkGray = 0x545454
     static let lightGray = 0x979797
@@ -22,6 +22,9 @@ public extension Color {
     static let placholder = Color(hex: AppColors.lightGray)
     static let error = Color.red
     static let darkGray = Color(hex: AppColors.darkGray)
+    static let appBlack = Color.black
+    static let appwhite = Color.white
+    static let pantoneWhite = appBackground
 }
 
 

@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Icons: String {
+public enum Icons: String, Codable {
     case ic_Attendance
     case ic_Events
     case ic_Exams
