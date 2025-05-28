@@ -3,9 +3,13 @@ import Foundation
 public enum Icons: String, Codable {
     
     case ic_home
+    case ic_home_sel
     case ic_profile
+    case ic_profile_sel
     case ic_askDoubt
+    case ic_askDoubt_sel
     case ic_inbox
+    case ic_inbox_sel
     
     case ic_Attendance
     case ic_Events
