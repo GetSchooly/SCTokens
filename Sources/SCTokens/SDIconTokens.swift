@@ -34,6 +34,13 @@ public enum Icons: String, Codable {
     
     case ic_school
     case ic_info
+    case ic_NextArrow
+    case ic_ChangePassword
+    case ic_Subscribe
+    case ic_Support
+    case ic_Language
+    case ic_Logout
+
     
     public var value: String {
         self.rawValue
