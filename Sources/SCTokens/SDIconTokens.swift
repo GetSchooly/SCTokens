@@ -38,7 +38,7 @@ public enum Icons: String, Codable {
     case ic_ChangePassword
     case ic_Subscribe
     case ic_Support
-    case ic_Language
+    case ic_lang
     case ic_Logout
 
     
