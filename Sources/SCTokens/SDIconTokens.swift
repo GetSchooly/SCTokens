@@ -2,6 +2,7 @@ import Foundation
 
 public enum Icons: String, Codable {
     
+    case ic_myschool_logo
     case ic_placeholder
     
     case ic_home
