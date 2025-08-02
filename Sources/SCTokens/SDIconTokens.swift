@@ -41,6 +41,7 @@ public enum Icons: String, Codable {
     case ic_Support
     case ic_lang
     case ic_Logout
+    case ic_Chevron_up
 
     
     public var value: String {
