@@ -46,6 +46,9 @@ public enum Icons: String, Codable {
     case ic_chat
     case ic_call
 
+    case ic_PreviousArrowWhite
+    case ic_NextArrowWhite
+
     public var value: String {
         self.rawValue
     }
