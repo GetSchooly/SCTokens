@@ -74,6 +74,8 @@ protocol SDCustomFontsType {
     var font200Light: Font { get }
     var font300Light: Font { get }
     var font400Light: Font { get }
+    var font500Light: Font { get }
+    var font600Light: Font { get }
 
     var font50Regular: Font { get }
     var font75Regular: Font { get }
@@ -82,6 +84,8 @@ protocol SDCustomFontsType {
     var font200Regular: Font { get }
     var font300Regular: Font { get }
     var font400Regular: Font { get }
+    var font500Regular: Font { get }
+    var font600Regular: Font { get }
 
     var font50Medium: Font { get }
     var font75Medium: Font { get }
@@ -90,6 +94,8 @@ protocol SDCustomFontsType {
     var font200Medium: Font { get }
     var font300Medium: Font { get }
     var font400Medium: Font { get }
+    var font500Medium: Font { get }
+    var font600Medium: Font { get }
 
     var font50SemiBold: Font { get }
     var font75SemiBold: Font { get }
@@ -98,6 +104,8 @@ protocol SDCustomFontsType {
     var font200SemiBold: Font { get }
     var font300SemiBold: Font { get }
     var font400SemiBold: Font { get }
+    var font500SemiBold: Font { get }
+    var font600SemiBold: Font { get }
 
     var font50Bold: Font { get }
     var font75Bold: Font { get }
@@ -106,6 +114,8 @@ protocol SDCustomFontsType {
     var font200Bold: Font { get }
     var font300Bold: Font { get }
     var font400Bold: Font { get }
+    var font500Bold: Font { get }
+    var font600Bold: Font { get }
 }
 
 
@@ -138,6 +148,16 @@ struct SDCustomFonts: SDCustomFontsType {
     var font400Light: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.light, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
+    
+    /// raw SD value font__500__Light
+    var font500Light: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.light, size: SDDdefaultTokenEntryPoint.tokenSource.sizing7x)
+    }
+    
+    /// raw SD value font__600__Light
+    var font600Light: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.light, size: SDDdefaultTokenEntryPoint.tokenSource.sizing8x)
+    }
 
 
     /// raw SD value font__50__regular
@@ -168,6 +188,14 @@ struct SDCustomFonts: SDCustomFontsType {
     var font400Regular: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
+    /// raw SD value font__500__regular
+    var font500Regular: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing7x)
+    }
+    /// raw SD value font__600__regular
+    var font600Regular: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.regular, size: SDDdefaultTokenEntryPoint.tokenSource.sizing8x)
+    }
 
     /// raw SD value font__50__Medium
     var font50Medium: Font {
@@ -196,6 +224,14 @@ struct SDCustomFonts: SDCustomFontsType {
     /// raw SD value font__400__Medium
     var font400Medium: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.medium, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
+    }
+    /// raw SD value font__500__Medium
+    var font500Medium: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.medium, size: SDDdefaultTokenEntryPoint.tokenSource.sizing7x)
+    }
+    /// raw SD value font__600__Medium
+    var font600Medium: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.medium, size: SDDdefaultTokenEntryPoint.tokenSource.sizing8x)
     }
 
 
@@ -227,6 +263,14 @@ struct SDCustomFonts: SDCustomFontsType {
     var font400SemiBold: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
     }
+    /// raw SD value font__500__SemiBold
+    var font500SemiBold: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing7x)
+    }
+    /// raw SD value font__600__SemiBold
+    var font600SemiBold: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.semiBold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing8x)
+    }
 
 
     /// raw SD value font__50__Bold
@@ -256,6 +300,14 @@ struct SDCustomFonts: SDCustomFontsType {
     /// raw SD value font__400__Bold
     var font400Bold: Font {
         return Font.custom(SDCustomFontsTokens.fontProvider.bold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing6x)
+    }
+    /// raw SD value font__500__Bold
+    var font500Bold: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.bold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing7x)
+    }
+    /// raw SD value font__600__Bold
+    var font600Bold: Font {
+        return Font.custom(SDCustomFontsTokens.fontProvider.bold, size: SDDdefaultTokenEntryPoint.tokenSource.sizing8x)
     }
 }
 
@@ -289,6 +341,14 @@ public extension Font {
         return SDCustomFontsTokens.customFonts.font400Light
     }
     
+    static var font500Light: Font {
+        return SDCustomFontsTokens.customFonts.font500Light
+    }
+    
+    static var font600Light: Font {
+        return SDCustomFontsTokens.customFonts.font600Light
+    }
+    
     static var font50Regular: Font {
         return SDCustomFontsTokens.customFonts.font50Regular
     }
@@ -315,6 +375,14 @@ public extension Font {
     
     static var font400Regular: Font {
         return SDCustomFontsTokens.customFonts.font400Regular
+    }
+    
+    static var font500Regular: Font {
+        return SDCustomFontsTokens.customFonts.font500Regular
+    }
+    
+    static var font600Regular: Font {
+        return SDCustomFontsTokens.customFonts.font600Regular
     }
     
     static var font50Medium: Font {
@@ -345,6 +413,14 @@ public extension Font {
         return SDCustomFontsTokens.customFonts.font400Medium
     }
     
+    static var font500Medium: Font {
+        return SDCustomFontsTokens.customFonts.font500Medium
+    }
+    
+    static var font600Medium: Font {
+        return SDCustomFontsTokens.customFonts.font600Medium
+    }
+    
     static var font50SemiBold: Font {
         return SDCustomFontsTokens.customFonts.font50SemiBold
     }
@@ -373,6 +449,14 @@ public extension Font {
         return SDCustomFontsTokens.customFonts.font400SemiBold
     }
     
+    static var font500SemiBold: Font {
+        return SDCustomFontsTokens.customFonts.font500SemiBold
+    }
+    
+    static var font600SemiBold: Font {
+        return SDCustomFontsTokens.customFonts.font600SemiBold
+    }
+    
     static var font50Bold: Font {
         return SDCustomFontsTokens.customFonts.font50Bold
     }
@@ -399,5 +483,13 @@ public extension Font {
     
     static var font400Bold: Font {
         return SDCustomFontsTokens.customFonts.font400Bold
+    }
+    
+    static var font500Bold: Font {
+        return SDCustomFontsTokens.customFonts.font500Bold
+    }
+    
+    static var font600Bold: Font {
+        return SDCustomFontsTokens.customFonts.font600Bold
     }
 }

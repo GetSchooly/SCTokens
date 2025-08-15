@@ -42,6 +42,7 @@ public enum Icons: String, Codable {
     case ic_lang
     case ic_Logout
     case ic_Chevron_up
+    case ic_Rectangle
 
     case ic_chat
     case ic_call
