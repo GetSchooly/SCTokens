@@ -37,3 +37,23 @@ public extension NavigationPath {
         removeLast(self.count)
     }
 }
+
+// MARK: - NavigationPathView Model
+public protocol NavigationPathManaging: AnyObject {
+    var homeNavigationPath: NavigationPath { get set }
+    var inboxNavigationPath: NavigationPath { get set }
+    var askDoubtNavigationPath: NavigationPath { get set }
+    var settingsNavigationPath: NavigationPath { get set }
+}
+
+// MARK: - EnvironmentKey for NavigationPath
+private struct NavigationManagerKey: EnvironmentKey {
+    static let defaultValue: NavigationPathManaging? = nil
+}
+
+extension EnvironmentValues {
+    public var navigationManager: NavigationPathManaging? {
+        get { self[NavigationManagerKey.self] }
+        set { self[NavigationManagerKey.self] = newValue }
+    }
+}
