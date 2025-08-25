@@ -28,6 +28,8 @@ public enum Icons: String, Codable {
     case ic_plus
     case ic_schoolInfo
     case ic_check
+    case ic_EmptyBox
+    case ic_CheckedBox
     
     case ic_onb1
     case ic_onb2
@@ -49,6 +51,7 @@ public enum Icons: String, Codable {
 
     case ic_PreviousArrowWhite
     case ic_NextArrowWhite
+    case ic_cross
 
     public var value: String {
         self.rawValue

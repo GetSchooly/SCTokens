@@ -7,6 +7,10 @@ private struct AppColors {
     static let darkGray = 0x545454
     static let lightGray = 0x979797
     static let lightBlue = 0xE6F3FF
+    static let pink = 0xD19BBC
+    static let yello = 0xD4D179
+    static let systemBlue = 0x0961F5
+    static let fadedGreen = 0x8BD1A1
 }
 
 public extension Color {
@@ -25,6 +29,10 @@ public extension Color {
     static let appBlack = Color.black
     static let appwhite = Color.white
     static let pantoneWhite = appBackground
+    static let softPink = Color(hex: AppColors.pink).opacity(0.3)
+    static let softYellow = Color(hex: AppColors.yello).opacity(0.38)
+    static let fadedBlue = Color(hex: AppColors.systemBlue).opacity(0.1)
+    static let lightGreen = Color(hex: AppColors.fadedGreen).opacity(0.28)
 }
 
 
