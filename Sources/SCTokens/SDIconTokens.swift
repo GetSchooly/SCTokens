@@ -1,10 +1,9 @@
 import Foundation
 
 public enum Icons: String, Codable {
-    
     case ic_myschool_logo
     case ic_placeholder
-    
+
     case ic_home
     case ic_home_sel
     case ic_profile
@@ -13,7 +12,7 @@ public enum Icons: String, Codable {
     case ic_askDoubt_sel
     case ic_inbox
     case ic_inbox_sel
-    
+
     case ic_Attendance
     case ic_Events
     case ic_Exams
@@ -26,15 +25,16 @@ public enum Icons: String, Codable {
     case ic_back
     case ic_notification
     case ic_plus
+    case ic_plusBlack
     case ic_schoolInfo
     case ic_check
     case ic_EmptyBox
     case ic_CheckedBox
-    
+
     case ic_onb1
     case ic_onb2
     case ic_onb3
-    
+
     case ic_school
     case ic_info
     case ic_NextArrow
@@ -51,22 +51,51 @@ public enum Icons: String, Codable {
 
     case ic_PreviousArrowWhite
     case ic_NextArrowWhite
+
     case ic_cross
+    case ic_downArrow
+
+    case ic_share
+    case ic_download
+    case ic_festival
+    case ic_late
+    case ic_notMarked
+    case ic_absent
+    case ic_present
+    case ic_na
+    case ic_empty
 
     public var value: String {
         self.rawValue
     }
 }
 
+public extension Icons {
+    enum System: String {
+        case xmark
+
+        public var value: String {
+            self.rawValue
+        }
+    }
+}
+
 public enum IconSize {
+    /// 12px
     case extraSmall
+    /// 16px
     case small
+    /// 20px
     case medium
+    /// 24px
     case large
+    /// 28px
     case extraLarge
+    /// 32px
     case XXLarge
+    /// custom width/height
     case custom(width: CGFloat, height: CGFloat)
-    
+
     public var width: CGFloat {
         switch self {
         case .extraSmall:
@@ -85,7 +114,7 @@ public enum IconSize {
             width
         }
     }
-    
+
     public var height: CGFloat {
         switch self {
         case .extraSmall:
