@@ -30,6 +30,7 @@ public enum Icons: String, Codable {
     case ic_check
     case ic_EmptyBox
     case ic_CheckedBox
+    case ic_current
 
     case ic_onb1
     case ic_onb2
